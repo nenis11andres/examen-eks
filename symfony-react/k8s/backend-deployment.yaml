@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: symfony-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: symfony
+  template:
+    metadata:
+      labels:
+        app: symfony
+    spec:
+      containers:
+        - name: symfony
+          image: andresnenis/symfony-react-symfony:latest
+          ports:
+            - containerPort: 80
